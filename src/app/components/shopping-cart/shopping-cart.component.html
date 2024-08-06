@@ -1,0 +1,15 @@
+<h2>Koszyk zakupów</h2>
+<section>
+  Zawartość:
+  <ul>
+    @for (product of shoppingCart.items; track $index) {
+      <li>{{ product.name }} - {{ product.price }} zł</li>
+    } @empty {
+      <li>Pusto tu:(</li>
+    }
+  </ul>
+  <p>Dostawa: {{ shoppingCart.shippingCost }}</p>
+  <p>Rabat: {{ shoppingCart.discounts }}</p>
+  <p>Do zapłaty: {{ shoppingCart.totalToPay }} zł</p>
+  <button (click)="onCheckout()">Złóż zamówienie</button>
+</section>
